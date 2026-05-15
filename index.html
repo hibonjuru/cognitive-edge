@@ -351,6 +351,7 @@ footer {
   <div class="nav-links">
     <a href="#curve">Forgetting Curve</a>
     <a href="#articles">Articles</a>
+    <a href="#labs">Labs</a>
     <a href="#audio">Audio</a>
     <a href="#references">References</a>
   </div>
@@ -513,12 +514,13 @@ footer {
       <p>We often confuse visual familiarity with actual retention. Read the text below and use your mouse to highlight the key concepts.</p>
       
       <div id="lab2-ui" style="margin-top: 1.5rem; padding: 1.5rem; background: var(--bg); border: 1px solid var(--border); border-radius: 8px;">
-  <div class="highlight-counter">Highlights used: <span id="hl-count">0</span> / 6</div>
+  <div class="highlight-counter">Highlights used: <span id="hl-count">0</span> / 10</div>
   <p id="lab2-text" style="font-size: 14px; line-height: 2;"></p>
   <p id="lab2-tip" style="font-size: 11px; color: var(--accent-dark); font-weight: 500; margin-top: 0.5rem;">&#8594; Click individual words to highlight what you think is important.</p>
   <textarea id="lab2-input" placeholder="Without looking, type the key concepts you highlighted..." style="display: none; width: 100%; height: 80px; padding: 0.5rem; margin-top: 1rem; border: 1px solid var(--border); border-radius: 4px; font-family: 'DM Sans', sans-serif; resize: none;"></textarea>
   <button class="tab" id="lab2-btn" style="margin-top: 1rem; display: none;" onclick="runLab2()">I'm done studying. Test me.</button>
   <div id="lab2-results" style="margin-top: 1rem; font-size: 13px; display: none;"></div>
+</div>
 </div>
 
     <div class="article-card">
@@ -592,7 +594,7 @@ function render(i){
   document.getElementById('i-label').textContent = s.label;
   document.getElementById('i-text').textContent = s.text;
   document.getElementById('i-tip').textContent = s.tip;
-  document.querySelectorAll('.tab').forEach((b,j)=>b.classList.toggle('active',j===i));
+  document.querySelectorAll('.scenario-tabs .tab').forEach((b,j)=>b.classList.toggle('active',j===i));
 }
 
 function setScenario(i){ render(i); }
@@ -815,7 +817,7 @@ function runLab3() {
       btn.style.display = 'inline-block';
       btn.textContent = "Final Results";
       lab3State = 3;
-    }, 4000);
+    }, 6000);
   } else if (lab3State === 3) {
     const userVal = input.value.trim().toUpperCase().replace(/[^A-Z]/g, '');
     const targetVal = round3Data2.replace(/[^A-Z]/g, '');
