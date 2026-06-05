@@ -19,9 +19,27 @@
   --amber: #B8860B;
   --blue: #2B6CB0;
   --red: #C53030;
+  --transition-speed: 0.25s;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+body.dark-theme {
+  --bg: #121211;
+  --surface: #1A1A19;
+  --border: #2E2D2A;
+  --text: #F2F1ED;
+  --muted: #8C8B83;
+  --accent-light: #162E24;
+  --accent-dark: #2ECC97;
+  --blue: #4299E1;
+  --amber: #ECC94B;
+}
+
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+  transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
 
 body {
   font-family: 'DM Sans', sans-serif;
@@ -50,20 +68,37 @@ nav {
   z-index: 100;
   max-width: 100%;
 }
+body.dark-theme nav {
+  background: rgba(18,18,17,0.92);
+}
 .nav-logo {
   font-family: 'DM Serif Display', serif;
   font-size: 17px;
   color: var(--text);
 }
 .nav-logo span { color: var(--accent); }
-.nav-links { display: flex; gap: 1.5rem; }
+.nav-links { display: flex; align-items: center; gap: 1.5rem; }
 .nav-links a {
   font-size: 13px;
   color: var(--muted);
   text-decoration: none;
-  transition: color 0.15s;
 }
 .nav-links a:hover { color: var(--text); }
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 11px;
+  cursor: pointer;
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+}
+.theme-toggle:hover {
+  border-color: var(--text);
+  color: var(--text);
+}
 
 /* HERO */
 .hero {
@@ -144,27 +179,38 @@ nav {
 }
 .section p strong { color: var(--text); font-weight: 500; }
 
-/* CURVE INTERACTIVE */
-.scenario-tabs {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
+/* BARRA PERSONALIZADA DE PATRONES DE ESTUDIO */
+.habit-console {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
   margin-bottom: 1.5rem;
 }
-.tab {
-  font-size: 12px;
-  padding: 6px 14px;
-  border-radius: 20px;
-  border: 0.5px solid var(--border);
-  background: var(--surface);
-  color: var(--muted);
-  cursor: pointer;
-  transition: all 0.15s;
-  font-family: 'DM Sans', sans-serif;
+.habit-console-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 12px;
 }
-.tab:hover { border-color: var(--accent); color: var(--accent); }
-.tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.habit-slider {
+  width: 100%;
+  accent-color: var(--accent);
+  cursor: pointer;
+  height: 6px;
+  border-radius: 3px;
+}
+.habit-timeline-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 8px;
+  padding: 0 4px;
+}
 
+/* CURVE CHART */
 .curve-chart {
   background: var(--surface);
   border: 0.5px solid var(--border);
@@ -199,15 +245,50 @@ nav {
 .insight-text { font-size: 13px; color: var(--text); line-height: 1.7; }
 .insight-tip { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.6; }
 
+/* BOTONES ESTILO CAPSULA (BLINDADOS EN ESPECIFICIDAD) */
+button.tab, .tab {
+  font-size: 12px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+button.tab:hover, .tab:hover { 
+  border-color: var(--accent); 
+  color: var(--accent); 
+}
+button.tab.active, .tab.active { 
+  background-color: var(--accent); 
+  border-color: var(--accent); 
+  color: #FFFFFF; 
+}
+
+/* ESTILOS DE LA LISTA DE CONSEJOS PERSONALIZADOS */
+.personalized-tips {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+.personalized-tips li {
+  font-size: 13px;
+  margin-bottom: 8px;
+  color: var(--text);
+  text-align: justify;
+}
+
 .word-token {
   cursor: pointer;
   border-radius: 3px;
   padding: 1px 2px;
-  transition: background 0.15s;
   display: inline;
 }
-.word-token:hover { background: #FFF8DC; }
-.word-token.highlighted { background: #FFE066; color: var(--text); }
+.word-token:hover { background: #FFF8DC; color: #1A1A18; }
+.word-token.highlighted { background: #FFE066; color: #1A1A18; }
 .highlight-counter {
   font-size: 11px;
   color: var(--muted);
@@ -244,10 +325,10 @@ nav {
   color: var(--text);
 }
 .article-card p {
-  font-size: 14px;
+  font-size: 14.5px;
   color: var(--muted);
   line-height: 1.8;
-  margin-bottom: 0.875rem;
+  margin-bottom: 1rem;
 }
 .article-card p:last-child { margin-bottom: 0; }
 .article-card p strong { color: var(--text); font-weight: 500; }
@@ -260,43 +341,97 @@ nav {
 }
 .tag-green { background: var(--accent-light); color: var(--accent-dark); }
 .tag-blue { background: #EBF4FF; color: var(--blue); }
+body.dark-theme .tag-blue { background: #1E293B; color: var(--blue); }
 .tag-amber { background: #FFF8E1; color: var(--amber); }
+body.dark-theme .tag-amber { background: #2D2510; color: var(--amber); }
 
-/* AUDIO */
-.audio-card {
+/* QUIZ OPTIONS */
+.quiz-option {
+  display: block;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-size: 13.5px;
+}
+.quiz-option:hover { border-color: var(--accent); }
+.quiz-option input { margin-right: 10px; accent-color: var(--accent); }
+
+/* VIDEOS */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.video-card {
   background: var(--surface);
   border: 0.5px solid var(--border);
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1.25rem;
 }
-.audio-placeholder {
-  background: var(--bg);
-  border: 0.5px dashed var(--border);
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #1A1A18;
   border-radius: 8px;
-  padding: 2rem;
-  text-align: center;
-  color: var(--muted);
-  font-size: 13px;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
-.audio-placeholder strong { display: block; font-size: 14px; color: var(--text); margin-bottom: 6px; }
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-card h4 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 14px;
+  margin-bottom: 0.25rem;
+  color: var(--text);
+}
+.video-card p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
 
 /* REFERENCES */
-.ref-list {
-  list-style: none;
-  padding: 0;
+#references .ref-list {
+  list-style: none !important;
+  padding: 0 !important;
+  width: 100% !important;
 }
-.ref-list li {
-  font-size: 13px;
-  color: var(--muted);
-  padding: 1.25rem 0;
-  border-bottom: 0.5px solid var(--border);
-  line-height: 1.8;
-  padding-left: 2rem;
-  text-indent: -2rem;
+
+#references .ref-list li {
+  display: block !important;
+  width: 100% !important;
+  font-size: 14px !important;
+  color: var(--muted) !important;
+  padding-top: 1.5rem !important; /* Espacio generoso arriba */
+  padding-bottom: 1.5rem !important; /* Espacio generoso abajo */
+  border-bottom: 0.5px solid var(--border) !important;
+  line-height: 2 !important; /* Aire entre las líneas de la misma cita */
+  padding-left: 2.5rem !important; /* Espacio de la sangría francesa */
+  text-indent: -2.5rem !important; /* Desplazamiento de la primera línea */
+  text-align: left !important; /* Fuerza la alineación izquierda saltándose cualquier herencia */
 }
-.ref-list li:last-child { border-bottom: none; }
-.ref-list li em { color: var(--text); }
+
+#references .ref-list li:last-child { 
+  border-bottom: none !important; 
+}
+
+#references .ref-list li em { 
+  color: var(--text) !important; 
+  font-style: italic !important;
+}
 
 /* FOOTER */
 footer {
@@ -321,99 +456,36 @@ footer {
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   will-change: opacity, transform;
 }
+.reveal.active { opacity: 1; transform: translateY(0); }
 
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .video-grid { grid-template-columns: 1fr; }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    transition: none;
-    transform: none;
-    opacity: 1;
-  }
-}
-.hl-target {
-  transition: background-color 0.3s ease;
-  border-radius: 2px;
-}
-.hl-active {
-  background-color: #E8F5F0;
-  color: #147A5A;
-}
-
-/* ─── RESPONSIVE ─── */
 @media (max-width: 640px) {
-
-  /* Nav */
-  nav {
-    padding: 0.75rem 1rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-  .nav-links {
-    gap: 0.875rem;
-    flex-wrap: wrap;
-  }
-  .nav-links a { font-size: 12px; }
-
-  /* Page */
+  nav { padding: 0.75rem 1rem; flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .nav-links { gap: 0.875rem; flex-wrap: wrap; }
+  .nav-links a, .theme-toggle { font-size: 12px; }
   .page { padding: 0 1rem 4rem; }
-
-  /* Hero */
   .hero { padding: 2.5rem 0 2rem; margin-bottom: 2.5rem; }
   .hero h1 { font-size: clamp(1.9rem, 8vw, 2.5rem); max-width: 100%; }
   .hero-sub { font-size: 14px; max-width: 100%; }
-  .hero-meta {
-    flex-direction: column;
-    gap: 4px;
-    font-size: 11px;
-  }
-
-  /* Section */
+  .hero-meta { flex-direction: column; gap: 4px; font-size: 11px; }
   .section { margin-bottom: 3rem; }
   .section h2 { font-size: 1.4rem; }
   .section p { font-size: 14px; }
-
-  /* Scenario tabs */
-  .scenario-tabs { gap: 5px; }
-  .tab { font-size: 11px; padding: 5px 11px; }
-
-  /* Stats row */
   .stats-row { grid-template-columns: 1fr 1fr; }
   .stat-val { font-size: 18px; }
-
-  /* Article cards */
   .article-card { padding: 1.25rem; }
   .article-card h3 { font-size: 1.1rem; }
   .article-card p { font-size: 13px; }
-
-  /* Labs */
   #lab1-screen { font-size: 1.5rem !important; }
   #lab3-screen { font-size: 1.2rem !important; }
-
-  /* Audio */
-  .audio-card { padding: 1rem; }
-  .audio-placeholder { padding: 1.25rem; }
-
-  /* References */
   .ref-list li { font-size: 12px; padding-left: 1.5rem; text-indent: -1.5rem; }
-
-  /* Footer */
-  footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    padding: 1.5rem 0 0;
-  }
-
-  /* Insight */
+  footer { flex-direction: column; align-items: flex-start; gap: 0.5rem; padding: 1.5rem 0 0; }
   .insight { padding: 0.875rem 1rem; }
   .insight-text { font-size: 12px; }
 }
-
 @media (max-width: 400px) {
   .stats-row { grid-template-columns: 1fr; }
   .nav-links { gap: 0.6rem; }
@@ -429,8 +501,10 @@ footer {
     <a href="#curve">Forgetting Curve</a>
     <a href="#articles">Articles</a>
     <a href="#labs">Labs</a>
-    <a href="#audio">Audio</a>
+    <a href="#quiz">Metacognition Quiz</a>
+    <a href="#videos">Videos</a>
     <a href="#references">References</a>
+    <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()">🌙 Night Mode</button>
   </div>
 </nav>
 
@@ -445,21 +519,28 @@ footer {
       <span>·</span>
       <span>Capstone Project — English C1.III</span>
       <span>·</span>
-      <span>Angel Ramírez, 2025</span>
+      <span>Angel Ramírez, 2026</span>
     </div>
   </div>
 
   <!-- FORGETTING CURVE -->
   <div class="section" id="curve">
-    <div class="section-label">Interactive</div>
+    <div class="section-label">Interactive Timeline</div>
     <h2>Ebbinghaus's Forgetting Curve</h2>
-    <p>Memory does not fade linearly — it degrades exponentially. Within the first hour after learning something new, you lose roughly half of it. Within a day, that number climbs even higher. Select a study pattern below to see how different habits affect what you actually retain over 7 days.</p>
+    <p>Memory does not fade linearly — it degrades exponentially. Within the first hour after learning something new, you lose roughly half of it. Drag the study architecture bar below to observe how different behavioral habits change retention metrics across 7 days.</p>
 
-    <div class="scenario-tabs">
-      <button class="tab active" onclick="setScenario(0)">No review</button>
-      <button class="tab" onclick="setScenario(1)">Cram the night before</button>
-      <button class="tab" onclick="setScenario(2)">Review after 1 day</button>
-      <button class="tab" onclick="setScenario(3)">Spaced repetition (SRS)</button>
+    <div class="habit-console">
+      <div class="habit-console-label">
+        <span>Timeline Study Pattern:</span>
+        <span id="current-pattern-title" style="color: var(--accent); font-weight: bold;">No review</span>
+      </div>
+      <input type="range" id="habit-slider" class="habit-slider" min="0" max="3" value="0" step="1" oninput="render(this.value)">
+      <div class="habit-timeline-labels">
+        <span>01. Inaction</span>
+        <span>02. Cramming</span>
+        <span>03. 1-Day Review</span>
+        <span>04. SRS (Optimal)</span>
+      </div>
     </div>
 
    <div class="curve-chart">
@@ -484,7 +565,6 @@ footer {
         <polyline id="curve-line" points="" fill="none" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
         <g id="curve-dots"></g>
       </svg>
-      
       <div style="font-size: 11px; color: var(--muted); text-align: center; margin-top: 16px;">
         Illustrative heuristic model. Not to scale with empirical variance in memory decay.
       </div>
@@ -525,26 +605,22 @@ footer {
       <div class="article-num">Article 01</div>
       <span class="article-tag tag-green">Memory</span>
       <h3>The Forgetting Curve — Why Your Brain Is Designed to Forget</h3>
-      <p>In the 1880s, psychologist Hermann Ebbinghaus systematically studied his own memory. He memorized lists of meaningless syllables and tested his retention at different intervals. His core finding: <strong>initial retention of non-contextual data degrades exponentially within the first 24 hours without intervention.</strong></p>
-      
-      <hr style="border: none; border-top: 0.5px solid var(--border); margin: 1.5rem 0;">
-      
-      <p>This pattern is the Forgetting Curve. It is not a biological flaw; it is an optimization feature. Your brain aggressively prunes unaccessed data to maintain metabolic efficiency. The problem arises because the brain cannot instinctively differentiate between a random observation and crucial academic data required for an exam.</p>
-      <p>A single exposure to information is insufficient for long-term retention. <strong>How you distribute your study time matters more than the total volume of hours.</strong> Brief, distributed reviews across five separate sessions mathematically yield higher retention than a single, sustained marathon session.</p>
+      <p>In the 1880s, German psychologist Hermann Ebbinghaus systematically evaluated the operational boundaries of human memory. By utilizing himself as the sole subject, he memorized lists of mathematically non-contextual nonsense syllables—specifically three-letter combinations like "DAX" or "BUP"—and tracked his retention over precise intervals. His empirical data revealed a critical baseline: <strong>human memory decay does not occur linearly. Instead, it degrades exponentially, with the most aggressive pruning taking place within the immediate twenty-four hours following initial exposure.</strong> Without any cognitive intervention, an individual will discard approximately fifty to sixty percent of newly acquired data within a few hours.</p>
+      <p>This pattern, formalized as the Forgetting Curve, represents a structural feature of metabolic optimization rather than a biological deficit. The brain continuously prunes unused neural pathways to preserve processing efficiency and avoid sensory overload. It cannot instinctively differentiate between transient environmental noise and the complex psychological frameworks required for a university evaluation. Crucially, Ebbinghaus discovered what he termed the <strong>savings method</strong>: even when information seems entirely inaccessible to conscious recall, relearning it requires significantly less time than the baseline acquisition phase. The underlying structural trace persists. To exploit this trace, study sessions must be strategically distributed to reactivate the pathway right before it falls below the retrieval threshold.</p>
     </div>
 
     <div class="article-card">
       <div class="article-num">Article 02</div>
       <span class="article-tag tag-blue">Cognitive Load</span>
       <h3>Cognitive Load — Why Your Brain Has a Bandwidth Limit</h3>
-      <p>The human brain operates with a finite processing capacity. When mental space is occupied by external stressors, learning becomes structurally harder due to what psychologists call <strong>cognitive load</strong>. You cannot optimize retention if the system is bottlenecked during the initial encoding phase.</p>
+      <p>Acquiring and retaining knowledge requires structured processing within working memory, which acts as the central executive's temporary workspace. However, this biological hardware has rigid capacity constraints. Miller’s Law states that the average human cognitive system can hold only 7 ± 2 distinct informational items concurrently. When a student faces systemic bottlenecks, this processing capacity shrinks further. Educational psychologist John Sweller formulated Cognitive Load Theory in 1988, categorizing cognitive demands into three distinct types that compete for this finite systemic bandwidth: intrinsic, extraneous, and germane load.</p>
       
       <div style="background: var(--bg); border-left: 3px solid var(--blue); padding: 1rem 1.25rem; margin: 1.5rem 0; border-radius: 0 4px 4px 0;">
         <p style="margin: 0; font-size: 13.5px; line-height: 1.6;"><strong>The Attentional Capture Effect (Mani et al., 2013)</strong><br>
-        Research demonstrates that external pressures—such as financial instability—consume working memory capacity. This cognitive tax is roughly equivalent to losing a full night of sleep. Background concerns continuously pull cognitive resources away from learning tasks.</p>
+        Research demonstrates that external pressures—such as financial instability or severe personal stress—consume working memory capacity directly. This cognitive tax is roughly equivalent to losing a full night of sleep. Background concerns continuously pull cognitive resources away from learning tasks, shrinking baseline capacity.</p>
       </div>
       
-      <p>A student dealing with personal instability is not studying under baseline conditions. Their available cognitive bandwidth is already partially occupied. <strong>Sustained attention relies on finite working memory capacity; behavioral effort alone cannot expand biological operational limits.</strong> Traditional advice to "try harder" ignores this structural constraint.</p>
+      <p><strong>Intrinsic load</strong> is dictated by the inherent complexity of the conceptual material itself, such as decoding advanced neuroanatomy frameworks. <strong>Extraneous load</strong> refers to the mental effort wasted on poorly designed instructional materials, environmental distractions, or fragmented study habits. <strong>Germane load</strong> represents the productive cognitive energy dedicated to processing information, synthesizing ideas, and constructing permanent mental schemas. If intrinsic and extraneous variables completely saturate working memory, germane processing becomes mathematically impossible; encoding ceases. Telling an anxious or exhausted student to simply "exert more effort" is a psychological fallacy that ignores these absolute biological constraints.</p>
     </div>
 
     <div class="article-card">
@@ -555,15 +631,12 @@ footer {
         <strong>TL;DR:</strong> Spaced Repetition Systems (SRS) bypass working memory bottlenecks by using algorithmic intervals to intercept memory decay, requiring less sustained cognitive effort than cramming.
       </div>
       
-      <p>Most study advice assumes you are starting from a neutral, rested state. Reality dictates otherwise. Spaced Repetition Systems (SRS) offer a methodological intervention. Instead of reviewing material in exhausting, continuous blocks, you spread reviews out over time.</p>
-      <p><strong>SRS algorithms schedule reviews at calculated intervals designed to intercept the probability of memory decay.</strong> This repeated cognitive strain signals to the brain that the data is essential, shifting it from fragile short-term storage to robust long-term networks.</p>
-      
-      <hr style="border: none; border-top: 0.5px solid var(--border); margin: 1.5rem 0;">
-      
-      <p>What makes SRS critical for students under high cognitive load is its low barrier to entry per session. A traditional cramming session demands sustained concentration—an impossibility for a depleted system. An SRS session on tools like Anki can last 10 minutes, keeping the cognitive demand per session low while maximizing long-term consolidation.</p>
+      <p>Traditional study habits, such as massed practice or "cramming," demand sustained, high-level operational capacity from an already depleted central executive. Under high cognitive load, a more viable architectural intervention is a Spaced Repetition System (SRS). SRS shifts the focus from continuous, exhausting study blocks to highly calculated, brief retrieval sessions distributed across algorithmic intervals. By launching a review session precisely when the probability of forgetting peaks, the system forces the brain to actively reconstruct the memory trace, resetting the decay curve.</p>
+      <p>The psychological mechanism validating this design is the <strong>testing effect</strong>. As demonstrated by Roediger and Karpicke (2006), the structural act of attempting active retrieval—even when difficult or uncomfortable—causes far deeper long-term consolidation than passive re-reading or highlighting. In their clinical trials, students utilizing active retrieval practice retained approximately fifty percent more material after one week compared to cohorts confined to passive text review. Passive review techniques create a dangerous cognitive bias known as the fluency trap or the illusion of competence: recognizing a text because it sits open in front of you mimics the feeling of mastery, yet it completely fails to construct the autonomous retrieval pathways required during a high-stakes exam. For a student operating with limited cognitive bandwidth, a ten-minute automated flashcard session on platforms like Anki exploits the testing effect with minimal immediate processing costs, allowing memory consolidation to compound sustainably over time.</p>
     </div>
   </div>
 
+  <!-- INTERACTIVE LABS -->
   <div class="section" id="labs">
     <div class="section-label">Interactive Labs</div>
     <h2>Testing the Hardware: Cognitive Bottlenecks</h2>
@@ -591,14 +664,14 @@ footer {
       <p>We often confuse visual familiarity with actual retention. Read the text below and use your mouse to highlight the key concepts.</p>
       
       <div id="lab2-ui" style="margin-top: 1.5rem; padding: 1.5rem; background: var(--bg); border: 1px solid var(--border); border-radius: 8px;">
-  <div class="highlight-counter">Highlights used: <span id="hl-count">0</span> / 10</div>
-  <p id="lab2-text" style="font-size: 14px; line-height: 2;"></p>
-  <p id="lab2-tip" style="font-size: 11px; color: var(--accent-dark); font-weight: 500; margin-top: 0.5rem;">&#8594; Click individual words to highlight what you think is important.</p>
-  <textarea id="lab2-input" placeholder="Without looking, type the key concepts you highlighted..." style="display: none; width: 100%; height: 80px; padding: 0.5rem; margin-top: 1rem; border: 1px solid var(--border); border-radius: 4px; font-family: 'DM Sans', sans-serif; resize: none;"></textarea>
-  <button class="tab" id="lab2-btn" style="margin-top: 1rem; display: none;" onclick="runLab2()">I'm done studying. Test me.</button>
-  <div id="lab2-results" style="margin-top: 1rem; font-size: 13px; display: none;"></div>
-</div>
-</div>
+        <div class="highlight-counter">Highlights used: <span id="hl-count">0</span> / 10</div>
+        <p id="lab2-text" style="font-size: 14px; line-height: 2;"></p>
+        <p id="lab2-tip" style="font-size: 11px; color: var(--accent-dark); font-weight: 500; margin-top: 0.5rem;">&#8594; Click individual words to highlight what you think is important.</p>
+        <textarea id="lab2-input" placeholder="Without looking, type the key concepts you highlighted..." style="display: none; width: 100%; height: 80px; padding: 0.5rem; margin-top: 1rem; border: 1px solid var(--border); border-radius: 4px; font-family: 'DM Sans', sans-serif; resize: none;"></textarea>
+        <button class="tab" id="lab2-btn" style="margin-top: 1rem; display: none;" onclick="runLab2()">I'm done studying. Test me.</button>
+        <div id="lab2-results" style="margin-top: 1rem; font-size: 13px; display: none;"></div>
+      </div>
+    </div>
 
     <div class="article-card">
       <div class="article-num">Lab 03</div>
@@ -615,16 +688,65 @@ footer {
     </div>
   </div>
 
-  <!-- AUDIO -->
-  <div class="section" id="audio">
-    <div class="section-label">Audio</div>
-    <h2>Spoken Walkthrough</h2>
-    <p>A conversational explanation of the Forgetting Curve and how to apply these concepts in your weekly study schedule — recorded without a script.</p>
-    <div class="audio-card">
-      <div class="audio-placeholder">
-        <strong>Audio coming soon</strong>
-        Replace this placeholder with your embedded audio or video file once recorded.<br>
-        Aim for 4 minutes per segment — conversational, no script.
+  <!-- CUESTIONARIO METACOGNITIVO -->
+  <div class="section" id="quiz">
+    <div class="section-label">Metacognition Assessment</div>
+    <h2>Test Your Habits: Study Architecture Quiz</h2>
+    <p>Evaluate your current academic behaviors against cognitive psychology baselines to determine your risk of falling into processing bottlenecks or the fluency trap.</p>
+    
+    <div class="article-card">
+      <div id="quiz-container">
+        <div style="margin-bottom: 1.5rem;">
+          <p><strong>1. How do you typically prepare for an extensive academic evaluation?</strong></p>
+          <label class="quiz-option"><input type="radio" name="q1" value="0"> Massed practice (concentrating the study volume within 48 hours of the exam).</label>
+          <label class="quiz-option"><input type="radio" name="q1" value="20"> Spaced repetition (brief distributed recall sessions across days or weeks).</label>
+        </div>
+        <div style="margin-bottom: 1.5rem;">
+          <p><strong>2. What is your primary behavior when processing dense text chapters?</strong></p>
+          <label class="quiz-option"><input type="radio" name="q2" value="0"> Passive review (linear re-reading and highlighting structures visually).</label>
+          <label class="quiz-option"><input type="radio" name="q2" value="20"> Active recall (closing material to self-test, flashcard design, or prompt evocation).</label>
+        </div>
+        <div style="margin-bottom: 1.5rem;">
+          <p><strong>3. Which description best defines your standard physical environment?</strong></p>
+          <label class="quiz-option"><input type="radio" name="q3" value="0"> High extraneous load (active phone notifications, visual disruptions, or background audio).</label>
+          <label class="quiz-option"><input type="radio" name="q3" value="20"> Controlled baseline (blocked digital alerts, silent workspace, minimized sensory noise).</label>
+        </div>
+        <div style="margin-bottom: 1.5rem;">
+          <p><strong>4. How do you execute memorization of complex, unstructured data points?</strong></p>
+          <label class="quiz-option"><input type="radio" name="q4" value="0"> Sequential intake (trying to anchor strings of facts or words exactly as they appear).</label>
+          <label class="quiz-option"><input type="radio" name="q4" value="20"> The chunking protocol (clustering fragmented fields into semantic units or acronyms).</label>
+        </div>
+        <div style="margin-bottom: 1.5rem;">
+          <p><strong>5. When dealing with severe systemic fatigue or acute stress frameworks, you:</strong></p>
+          <label class="quiz-option"><input type="radio" name="q5" value="0"> Force long, high-effort study sessions ignoring working memory capacity degradation.</label>
+          <label class="quiz-option"><input type="radio" name="q5" value="20"> Adapt to brief, low-friction processing modules (like a 10-minute automated SRS loop).</label>
+        </div>
+        <button class="tab" style="width: 100%; padding: 10px; margin-top: 1rem;" onclick="processQuiz()">Analyze My Efficiency</button>
+      </div>
+      <div id="quiz-results" style="display: none;"></div>
+    </div>
+  </div>
+
+  <!-- VIDEOS -->
+  <div class="section" id="videos">
+    <div class="section-label">Video Tutorials</div>
+    <h2>Spoken Walkthroughs</h2>
+    <p>A semi-spontaneous, comprehensive explanation of the psychological mechanisms governing memory optimization and architectural processing limits.</p>
+    
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
+        </div>
+        <h4>Part I: The Forgetting Curve & Spaced Repetition</h4>
+        <p>An in-depth analysis of Ebbinghaus's savings method, exponential retrieval decay, and the structural application of automated SRS algorithms.</p>
+      </div>
+      <div class="video-card">
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
+        </div>
+        <h4>Part II: Cognitive Load Theory & Active Recall</h4>
+        <p>Evaluating working memory boundaries, the metabolic taxes of external stress frameworks, and the systemic failure of passive review strategies.</p>
       </div>
     </div>
   </div>
@@ -634,49 +756,240 @@ footer {
     <div class="section-label">References</div>
     <h2>Academic Sources</h2>
     <ul class="ref-list">
-  <li>Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T., & Rohrer, D. (2006). Distributed practice in verbal recall tasks: A review and quantitative synthesis. <em>Psychological Bulletin, 132</em>(3), 354–380. https://doi.org/10.1037/0033-2909.132.3.354</li>
-  <li>Ebbinghaus, H. (1885). <em>Memory: A contribution to experimental psychology</em> (H. A. Ruger & C. E. Bussenius, Trans.). Teachers College, Columbia University. https://doi.org/10.1037/10011-000</li>
-  <li>Mani, A., Mullainathan, S., Shafir, E., & Zhao, J. (2013). Poverty impedes cognitive function. <em>Science, 341</em>(6149), 976–980. https://doi.org/10.1126/science.1238041</li>
-  <li>Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. <em>Cognitive Science, 12</em>(2), 257–285. https://doi.org/10.1207/s15516709cog1202_4</li>
-</ul>
+      <li>Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T., & Rohrer, D. (2006). Distributed practice in verbal recall tasks: A review and quantitative synthesis. <em>Psychological Bulletin, 132</em>(3), 354–380.</li>
+      <li>Ebbinghaus, H. (1885). <em>Memory: A contribution to experimental psychology</em> (H. A. Ruger & C. E. Bussenius, Trans.). Teachers College, Columbia University.</li>
+      <li>Mani, A., Mullainathan, S., Shafir, E., & Zhao, J. (2013). Poverty impedes cognitive function. <em>Science, 341</em>(6149), 976–980.</li>
+      <li>Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. <em>Cognitive Science, 12</em>(2), 257–285.</li>
+    </ul>
   </div>
 
   <footer>
-    <span>The Cognitive Edge — Angel Ramírez, Universidad de Talca, 2025</span>
+    <span>The Cognitive Edge — Angel Ramírez, Universidad de Talca, 2026</span>
     <span class="footer-tag">C1.III Capstone Project</span>
   </footer>
 
 </div>
 
 <script>
-const xs = [58,128,198,268,338,408,478,548];
-function toY(v){ return 210 - (v/100)*200; }
+// VARIABLES E INTRODUCCIÓN DE CURVA
+const xs = [58, 128, 198, 268, 338, 408, 478, 548];
+
+function toY(v) { 
+  return 210 - (v / 100) * 200; 
+}
 
 const scenarios = [
-  {data:[100,58,35,33,28,25,22,21],color:'#C53030',d1:'33%',d7:'21%',exam:'Low',label:'No review',text:'Without any review, your brain treats new information as irrelevant and discards most of it within 24 hours. By exam day a week later, you retain less than a quarter of what you studied.',tip:'This is the default for most students. It feels efficient but produces poor long-term results.'},
-  {data:[100,58,35,33,28,25,88,72],color:'#B8860B',d1:'33%',d7:'72%',exam:'Medium',label:'Cramming the night before',text:'Cramming creates a short burst of retention right before the exam. But the brain never consolidates the information into long-term memory — retention collapses again within days.',tip:'You might pass, but you will not remember it a week later.'},
-  {data:[100,58,35,80,72,65,58,50],color:'#2B6CB0',d1:'80%',d7:'50%',exam:'Medium-High',label:'One review after 1 day',text:'Reviewing material just once after 24 hours significantly flattens the forgetting curve. A single session tells your brain this information matters, doubling long-term retention compared to no review.',tip:'Even 15 minutes of review the next day has measurable impact.'},
-  {data:[100,58,35,33,80,85,88,90],color:'#1D9E75',d1:'80%',d7:'90%',exam:'High',label:'Spaced repetition (SRS)',text:'SRS schedules reviews at precisely the moment your brain is about to forget. Each session strengthens the memory trace and pushes the next forgetting point further into the future — eventually reaching near-permanent retention.',tip:'Tools like Anki automate this. The compounding effect on long-term memory is significant, especially under high cognitive load.'}
+  {
+    data: [100, 58, 35, 33, 28, 25, 22, 21],
+    color: '#C53030',
+    d1: '33%',
+    d7: '21%',
+    exam: 'Low',
+    label: 'No review',
+    text: 'Without any review, your brain treats new information as irrelevant and discards most of it within 24 hours. By exam day a week later, you retain less than a quarter of what you studied.',
+    tip: 'This is the default for most students. It feels efficient but produces poor long-term results.'
+  },
+  {
+    data: [100, 58, 35, 33, 28, 25, 88, 72],
+    color: '#B8860B',
+    d1: '33%',
+    d7: '72%',
+    exam: 'Medium',
+    label: 'Cramming the night before',
+    text: 'Cramming creates a short burst of retention right before the exam. But the brain never consolidates the information into long-term memory — retention collapses again within days.',
+    tip: 'You might pass, but you will not remember it a week later.'
+  },
+  {
+    data: [100, 58, 35, 80, 72, 65, 58, 50],
+    color: '#2B6CB0',
+    d1: '80%',
+    d7: '50%',
+    exam: 'Medium-High',
+    label: 'One review after 1 day',
+    text: 'Reviewing material just once after 24 hours significantly flattens the forgetting curve. A single session tells your brain this information matters, doubling long-term retention compared to no review.',
+    tip: 'Even 15 minutes of review the next day has measurable impact.'
+  },
+  {
+    data: [100, 58, 35, 33, 80, 85, 88, 90],
+    color: '#1D9E75',
+    d1: '80%',
+    d7: '90%',
+    exam: 'High',
+    label: 'Spaced repetition (SRS)',
+    text: 'SRS schedules reviews at precisely the moment your brain is about to forget. Each session strengthens the memory trace and pushes the next forgetting point further into the future — eventually reaching near-permanent retention.',
+    tip: 'Tools like Anki automate this. The compounding effect on long-term memory is significant, especially under high cognitive load.'
+  }
 ];
 
-function render(i){
-  const s = scenarios[i];
-  const pts = xs.map((x,j) => x+','+toY(s.data[j])).join(' ');
-  document.getElementById('curve-line').setAttribute('points',pts);
-  document.getElementById('curve-line').setAttribute('stroke',s.color);
-  document.getElementById('curve-dots').innerHTML = xs.map((x,j)=>`<circle cx="${x}" cy="${toY(s.data[j])}" r="4" fill="${s.color}"/>`).join('');
+// FUNCIÓN DE RENDERIZADO COMPLETAMENTE DESCOMPACTADA
+function render(i) {
+  const index = parseInt(i);
+  const s = scenarios[index];
+  
+  document.getElementById('habit-slider').value = index;
+  document.getElementById('current-pattern-title').textContent = s.label;
+  
+  const pts = xs.map(function(x, j) {
+    return x + ',' + toY(s.data[j]);
+  }).join(' ');
+  
+  const curveLine = document.getElementById('curve-line');
+  curveLine.setAttribute('points', pts);
+  curveLine.setAttribute('stroke', s.color);
+  
+  const dotsContainer = document.getElementById('curve-dots');
+  dotsContainer.innerHTML = xs.map(function(x, j) {
+    return `<circle cx="${x}" cy="${toY(s.data[j])}" r="4" fill="${s.color}"/>`;
+  }).join('');
+  
   document.getElementById('s-d1').textContent = s.d1;
   document.getElementById('s-d7').textContent = s.d7;
   document.getElementById('s-exam').textContent = s.exam;
   document.getElementById('i-label').textContent = s.label;
   document.getElementById('i-text').textContent = s.text;
   document.getElementById('i-tip').textContent = s.tip;
-  document.querySelectorAll('.scenario-tabs .tab').forEach((b,j)=>b.classList.toggle('active',j===i));
 }
 
-function setScenario(i){ render(i); }
+// Inicialización por defecto en el Escenario 0 (No review)
 render(0);
-// --- LAB 1: Dual Task (Carga Cognitiva) ---
+
+// --- MODO NOCTURNO ---
+function toggleTheme() {
+  document.body.classList.toggle('dark-theme');
+  const isDark = document.body.classList.contains('dark-theme');
+  const themeBtn = document.getElementById('theme-btn');
+  if (isDark) {
+    themeBtn.textContent = "☀️ Day Mode";
+  } else {
+    themeBtn.textContent = "🌙 Night Mode";
+  }
+}
+
+// --- CUESTIONARIO METACOGNITIVO DESCOMPACTADO ---
+function processQuiz() {
+  let score = 0;
+  let validation = true;
+  let customTipsHTML = "";
+  
+  const q1 = document.querySelector('input[name="q1"]:checked');
+  if (q1) {
+    score += parseInt(q1.value);
+    if (q1.value === "0") {
+      customTipsHTML += "<li><strong>On Preparation:</strong> You are relying heavily on massed practice. Cramming forces a severe drop in data preservation post-exam. Shift your architecture to distributed spacing modules to activate the Ebbinghaus savings method properly.</li>";
+    }
+  } else {
+    validation = false;
+  }
+  
+  const q2 = document.querySelector('input[name="q2"]:checked');
+  if (q2) {
+    score += parseInt(q2.value);
+    if (q2.value === "0") {
+      customTipsHTML += "<li><strong>On Content Processing:</strong> Linear re-reading and text highlighting trigger the fluency trap. Recognition feels like mastery, but fails to construct autonomous retrieval networks. Force active retrieval (make flashcards, do practice questions before you are ready).</li>";
+    }
+  } else {
+    validation = false;
+  }
+  
+  const q3 = document.querySelector('input[name="q3"]:checked');
+  if (q3) {
+    score += parseInt(q3.value);
+    if (q3.value === "0") {
+      customTipsHTML += "<li><strong>On Focus Environment:</strong> Studying with active device alerts maximizes extraneous cognitive load. You are spending limited working memory bandwidth inhibiting irrelevant sensory data instead of processing conceptual frameworks. Lock down your digital workspace.</li>";
+    }
+  } else {
+    validation = false;
+  }
+  
+  const q4 = document.querySelector('input[name="q4"]:checked');
+  if (q4) {
+    score += parseInt(q4.value);
+    if (q4.value === "0") {
+      customTipsHTML += "<li><strong>On Data Structure:</strong> Trying to absorb sequences of unlinked points violates Miller's Law constraints. You cannot expand your raw short-term data space, but you can compress information. Map data into systematic acronyms or chunking schemas.</li>";
+    }
+  } else {
+    validation = false;
+  }
+  
+  const q5 = document.querySelector('input[name="q5"]:checked');
+  if (q5) {
+    score += parseInt(q5.value);
+    if (q5.value === "0") {
+      customTipsHTML += "<li><strong>On Stress Control:</strong> Forcing marathon study sessions during states of exhaustion or personal anxiety is a psychological fallacy. When working memory capacity is occupied by systemic stressors, change your input into 10-minute micro-sessions via algorithmic SRS tools.</li>";
+    }
+  } else {
+    validation = false;
+  }
+  
+  if (!validation) {
+    alert("Please evaluate all architectural options before submission.");
+    return;
+  }
+  
+  const container = document.getElementById('quiz-container');
+  const results = document.getElementById('quiz-results');
+  
+  let label = "";
+  let diagnosis = "";
+  
+  if (score >= 80) {
+    label = "Optimized Strategy";
+    diagnosis = "Your processing baseline minimizes extraneous load and relies heavily on active retrieval networks and structured spacing intervals.";
+  } else if (score >= 50) {
+    label = "Vulnerable Architecture";
+    diagnosis = "You utilize selective active structures but frequently lapse into massed practice, risking working memory bottlenecks or falling into the fluency trap.";
+  } else {
+    label = "High Cognitive Tax";
+    diagnosis = "Your current workflow runs directly counter to human biological memory processing. You depend heavily on visual recognition and high-fatigue massed habits.";
+  }
+  
+  if (customTipsHTML === "") {
+    customTipsHTML = "<li><strong>System Clean:</strong> No critical architectural flaws detected. Your study habits align with human biological encoding constraints.</li>";
+  }
+  
+  container.style.display = 'none';
+  results.style.display = 'block';
+  
+  results.innerHTML = `
+    <div class="stats-row">
+      <div class="stat" style="grid-column: span 3; text-align: center;">
+        <div class="stat-label">Cognitive Efficiency Index</div>
+        <div class="stat-val" style="color: var(--accent); font-size: 2rem;">${score}%</div>
+      </div>
+    </div>
+    <div class="insight" style="margin-top: 1rem;">
+      <div class="insight-label">${label}</div>
+      <div class="insight-text"><strong>Analysis:</strong> ${diagnosis}</div>
+      <div style="margin-top: 12px; font-weight: 500; font-size: 12px; color: var(--text); text-transform: uppercase; letter-spacing: 0.04em;">Targeted Action Items:</div>
+      <ul class="personalized-tips">${customTipsHTML}</ul>
+    </div>
+    <button class="tab" style="width: 100%; margin-top: 1.5rem;" onclick="resetQuiz()">Retake Assessment</button>
+  `;
+  
+  results.scrollIntoView({ 
+    behavior: 'smooth', 
+    block: 'center' 
+  });
+}
+
+function resetQuiz() {
+  document.getElementById('quiz-results').style.display = 'none';
+  const container = document.getElementById('quiz-container');
+  container.style.display = 'block';
+  for (let i = 1; i <= 5; i++) {
+    const checked = document.querySelector(`input[name="q${i}"]:checked`);
+    if (checked) {
+      checked.checked = false;
+    }
+  }
+  
+  container.scrollIntoView({ 
+    behavior: 'smooth', 
+    block: 'center' 
+  });
+}
+
+// --- LAB 01: DUAL TASK ---
 let lab1State = 0;
 let round1Data = "K M F R P L T";
 let round2Data = "X J Q B V N C";
@@ -693,7 +1006,7 @@ function runLab1() {
     btn.style.display = 'none';
     results.style.display = 'none';
     screen.textContent = round1Data;
-    setTimeout(() => {
+    setTimeout(function() {
       screen.textContent = "Time's up";
       input.style.display = 'block';
       input.focus();
@@ -702,12 +1015,14 @@ function runLab1() {
       lab1State = 1;
     }, 4000);
   } else if (lab1State === 1) {
-    // Calculamos el puntaje limpiando espacios
     const userVal = input.value.trim().toUpperCase().replace(/\s/g, '');
     const targetVal = round1Data.replace(/\s/g, '');
     lab1Score1 = 0;
-    for(let i=0; i < Math.min(userVal.length, targetVal.length); i++) {
-       if(userVal[i] === targetVal[i]) lab1Score1++;
+    
+    for (let i = 0; i < Math.min(userVal.length, targetVal.length); i++) {
+      if (userVal[i] === targetVal[i]) {
+        lab1Score1++;
+      }
     }
     
     input.style.display = 'none';
@@ -723,7 +1038,7 @@ function runLab1() {
     screen.textContent = round2Data;
     btn.style.display = 'none';
     
-    setTimeout(() => {
+    setTimeout(function() {
       screen.textContent = "Time's up";
       distractor.style.display = 'none';
       input.style.display = 'block';
@@ -736,8 +1051,11 @@ function runLab1() {
     const userVal = input.value.trim().toUpperCase().replace(/\s/g, '');
     const targetVal = round2Data.replace(/\s/g, '');
     let lab1Score2 = 0;
-    for(let i=0; i < Math.min(userVal.length, targetVal.length); i++) {
-       if(userVal[i] === targetVal[i]) lab1Score2++;
+    
+    for (let i = 0; i < Math.min(userVal.length, targetVal.length); i++) {
+      if (userVal[i] === targetVal[i]) {
+        lab1Score2++;
+      }
     }
     
     input.style.display = 'none';
@@ -761,42 +1079,52 @@ function resetLab1() {
   btn.textContent = "Start Round 1";
 }
 
-// --- LAB 2: Fluency Trap (Evocación Activa - Subrayado Libre) ---
+// --- LAB 02: FLUENCY TRAP ---
 const LAB2_TEXT = "Working memory is a cognitive system with a limited capacity that can hold information temporarily. According to Miller's Law, the average human can hold only 7 ± 2 objects in their working memory. When this limit is exceeded, information is overwritten or discarded entirely.";
-const MAX_HIGHLIGHTS = 10;
 let lab2State = 0;
 let lab2Highlights = [];
 
 function initLab2() {
   const container = document.getElementById('lab2-text');
-  container.innerHTML = LAB2_TEXT.split(' ').map((word, i) =>
-    `<span class="word-token" data-index="${i}" onclick="toggleHighlight(this)">${word}</span> `
-  ).join('');
+  container.innerHTML = LAB2_TEXT.split(' ').map(function(word, i) {
+    return `<span class="word-token" data-index="${i}" onclick="toggleHighlight(this)">${word}</span> `;
+  }).join('');
 }
 
 function toggleHighlight(el) {
-  if (lab2State !== 0) return;
+  if (lab2State !== 0) {
+    return;
+  }
   if (el.classList.contains('highlighted')) {
     el.classList.remove('highlighted');
-    lab2Highlights = lab2Highlights.filter(w => w !== el.textContent.trim());
+    lab2Highlights = lab2Highlights.filter(function(w) {
+      return w !== el.textContent.trim();
+    });
   } else {
-    if (lab2Highlights.length >= MAX_HIGHLIGHTS) {
+    if (lab2Highlights.length >= 10) {
       el.style.animation = 'shake 0.3s';
-      setTimeout(() => el.style.animation = '', 300);
+      setTimeout(function() {
+        el.style.animation = '';
+      }, 300);
       return;
     }
     el.classList.add('highlighted');
     lab2Highlights.push(el.textContent.trim());
   }
   document.getElementById('hl-count').textContent = lab2Highlights.length;
-  document.getElementById('lab2-btn').style.display = lab2Highlights.length > 0 ? 'inline-block' : 'none';
+  const btn = document.getElementById('lab2-btn');
+  if (lab2Highlights.length > 0) {
+    btn.style.display = 'inline-block';
+  } else {
+    btn.style.display = 'none';
+  }
 }
 
 function runLab2() {
   const input = document.getElementById('lab2-input');
   const btn = document.getElementById('lab2-btn');
   const results = document.getElementById('lab2-results');
-
+  
   if (lab2State === 0) {
     document.getElementById('lab2-text').style.display = 'none';
     document.getElementById('lab2-tip').style.display = 'none';
@@ -840,10 +1168,9 @@ function resetLab2() {
   btn.textContent = "I'm done studying. Test me.";
   initLab2();
 }
-
 initLab2();
 
-// --- LAB 3: Chunking (Estructura) ---
+// --- LAB 03: CHUNKING ---
 let lab3State = 0;
 let lab3Score1 = 0;
 let round3Data1 = "T R S P M O L U C A X Z";
@@ -854,12 +1181,12 @@ function runLab3() {
   const btn = document.getElementById('lab3-btn');
   const input = document.getElementById('lab3-input');
   const results = document.getElementById('lab3-results');
-
+  
   if (lab3State === 0) {
     btn.style.display = 'none';
     results.style.display = 'none';
     screen.textContent = round3Data1;
-    setTimeout(() => {
+    setTimeout(function() {
       screen.textContent = "Time's up";
       input.style.display = 'block';
       input.focus();
@@ -871,8 +1198,11 @@ function runLab3() {
     const userVal = input.value.trim().toUpperCase().replace(/[^A-Z]/g, '');
     const targetVal = round3Data1.replace(/[^A-Z]/g, '');
     lab3Score1 = 0;
-    for(let i=0; i < Math.min(userVal.length, targetVal.length); i++) {
-       if(userVal[i] === targetVal[i]) lab3Score1++;
+    
+    for (let i = 0; i < Math.min(userVal.length, targetVal.length); i++) {
+      if (userVal[i] === targetVal[i]) {
+        lab3Score1++;
+      }
     }
     
     input.style.display = 'none';
@@ -887,7 +1217,7 @@ function runLab3() {
     screen.textContent = round3Data2;
     btn.style.display = 'none';
     
-    setTimeout(() => {
+    setTimeout(function() {
       screen.textContent = "Time's up";
       input.style.display = 'block';
       input.focus();
@@ -899,8 +1229,11 @@ function runLab3() {
     const userVal = input.value.trim().toUpperCase().replace(/[^A-Z]/g, '');
     const targetVal = round3Data2.replace(/[^A-Z]/g, '');
     let lab3Score2 = 0;
-    for(let i=0; i < Math.min(userVal.length, targetVal.length); i++) {
-       if(userVal[i] === targetVal[i]) lab3Score2++;
+    
+    for (let i = 0; i < Math.min(userVal.length, targetVal.length); i++) {
+      if (userVal[i] === targetVal[i]) {
+        lab3Score2++;
+      }
     }
     
     input.style.display = 'none';
@@ -924,31 +1257,30 @@ function resetLab3() {
   btn.textContent = "Start Random Data";
 }
 
+// --- REVEAL ON SCROLL ---
 document.addEventListener("DOMContentLoaded", function() {
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px",
+  const observerOptions = { 
+    root: null, 
+    rootMargin: "0px", 
     threshold: 0.15 
   };
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
+  
+  const observer = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) { 
+        entry.target.classList.add('active'); 
         observer.unobserve(entry.target); 
       }
     });
   }, observerOptions);
-
-  const elementsToReveal = document.querySelectorAll('.section > h2, .section > p, .curve-chart, .stats-row, .article-card, .audio-card, .ref-list li');
   
-  elementsToReveal.forEach((el, index) => {
-    el.classList.add('reveal');
-    el.style.transitionDelay = `${(index % 5) * 0.1}s`;
+  const elementsToReveal = document.querySelectorAll('.section > h2, .section > p, .curve-chart, .stats-row, .article-card, .video-card, .ref-list li');
+  elementsToReveal.forEach(function(el, index) {
+    el.classList.add('reveal'); 
+    el.style.transitionDelay = `${(index % 5) * 0.1}s`; 
     observer.observe(el);
   });
 });
 </script>
-</style>
 </body>
 </html>
