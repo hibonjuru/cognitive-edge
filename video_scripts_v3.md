@@ -18,19 +18,11 @@
 
 [PANTALLA: abrir el sitio en la sección hero/inicio — dejar que se vea el título "The Cognitive Edge" y el subtítulo]
 
-So — imagine you spend two hours studying for an exam.
-You feel good about it. You understood everything.
-Then, three days later, you sit down to review
-and you can barely remember half of it.
+Have you ever spent hours studying for a midterm, felt like you totally got it, and then three days later, when you sit down to review, your brain is just blank?
 
-That's not a focus problem. That's not laziness.
-That's the Forgetting Curve — and it happens to everyone.
+That used to happen to me all the time during my first year here at Universidad de Talca. I used to think I was just bad at memorizing, or maybe lazy. But it turns out, it's just how the human brain is wired. It's called the Forgetting Curve — and it happens to everyone.
 
-My name is Angel Ramírez, I'm a psychology student at Universidad de Talca,
-and this is the first video of my Capstone Project.
-The platform is called The Cognitive Edge —
-a resource about how memory actually works,
-and what you can do about it.
+My name is Angel Ramírez, I'm a psychology student, and this is the first video of my Capstone Project. The platform is called The Cognitive Edge — a resource about how memory actually works, and what we can do about it.
 
 [PANTALLA: hacer scroll suave hasta la sección de la Forgetting Curve con el gráfico interactivo — detente ahí]
 
@@ -82,16 +74,9 @@ and it has nothing to do with intelligence.
 
 [PANTALLA: abrir el sitio en la sección Articles — Article 02 "Cognitive Load" visible]
 
-Here's a scenario.
-You're studying for an important exam.
-You've been at it for two hours.
-You're tired, there's noise in the background,
-your phone keeps lighting up —
-and you're reading the same paragraph for the third time
-but nothing is sticking.
+We've all been there: you've been studying for a couple of hours, your phone is buzzing next to you, there's noise in the background, and you find yourself reading the exact same sentence for the fourth time without understanding a single word.
 
-That's not a willpower problem.
-That's what cognitive overload looks like in practice.
+When that happens, most people tell themselves to "just focus" or "try harder." But the truth is, your brain is simply full. It's out of bandwidth. This is what cognitive overload actually looks like in practice.
 
 [PANTALLA: scroll hasta la sección Labs — Lab "Dual-Task Penalty" visible]
 
@@ -161,32 +146,16 @@ that takes all of this into account.
 
 [PANTALLA: abrir el sitio en la sección Labs — Lab "Illusion of Competence" visible]
 
-In the first two videos I talked about
-why the brain forgets so aggressively,
-and why cognitive overload makes learning even harder.
+If I ask you how you usually study, you'll probably tell me you highlight your notes, read them a few times, and go over them until the material feels familiar.
 
-In this one — the solution.
+But there's a huge trap here. Let me show you what I mean with this quick test. It's called the "Illusion of Competence" lab.
 
 [PANTALLA: hacer clic en el Lab "Illusion of Competence" — iniciar la demostración]
 
-Here's a quick question.
-How do you normally study?
+Let's click a few words to highlight what seems important...
+[PANTALLA: completar el lab y escribir en el cuadro de texto sin mirar]
 
-Most students re-read their notes, highlight things,
-and go over the material until it feels familiar.
-And here's the problem:
-familiarity is not the same as recall.
-
-[PANTALLA: completar el lab — mostrar cómo resaltar no mejora el recall en las preguntas]
-
-When you re-read something, your brain recognizes the words
-and produces a sense of "yeah, I know this."
-That feeling is real — but it's misleading.
-Because on an exam, the textbook is not in front of you.
-You need actual recall, not recognition.
-
-Psychologists call this the illusion of competence.
-It's one of the most common traps in academic studying.
+See that discrepancy? Recognizing a word on a page is incredibly easy, so our brain tricks us into thinking we've learned it. But when the page is gone and you actually have to pull that word out of your head on an exam, you can't. That gap is what psychologists call the illusion of competence. It's one of the most common traps in studying.
 
 [PANTALLA: ir al Lab "Chunking Protocol"]
 
