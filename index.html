@@ -503,7 +503,7 @@ footer {
     <a href="#glossary">Glossary</a>
     <a href="#labs">Labs</a>
     <a href="#quiz">Quiz</a>
-    <a href="#videos">Videos</a>
+    <a href="#audio-guides">Audio Guides</a>
     <a href="#about">About</a>
     <a href="#references">References</a>
     <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()">🌙 Night Mode</button>
@@ -777,30 +777,39 @@ footer {
     </div>
   </div>
 
-  <!-- VIDEOS -->
-  <div class="section" id="videos">
-    <div class="section-label">Video Walkthroughs</div>
-    <h2>Spoken Walkthroughs</h2>
-    <p>Screencast walkthroughs of the site — I navigate each section and explain the key ideas in my own words. Three parts, about three minutes each.</p>
+  <!-- AUDIO GUIDES -->
+  <div class="section" id="audio-guides">
+    <div class="section-label">Audio Walkthroughs</div>
+    <h2>Spoken Audio Guides</h2>
+    <p>Spoken audio guides of the site — listen to me explain the key concepts and research findings in my own words. Three parts, about three minutes each.</p>
     
     <div class="video-grid">
       <div class="video-card">
-        <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
+        <div class="audio-player-container" style="margin-top: 0.5rem; margin-bottom: 1.25rem;">
+          <audio controls style="width: 100%; accent-color: var(--accent);">
+            <source src="audio/part1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
         </div>
         <h4>Part I: The Forgetting Curve</h4>
         <p>Why memory fades so fast, what Ebbinghaus discovered, and why your previous study sessions are never entirely wasted.</p>
       </div>
       <div class="video-card">
-        <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
+        <div class="audio-player-container" style="margin-top: 0.5rem; margin-bottom: 1.25rem;">
+          <audio controls style="width: 100%; accent-color: var(--accent);">
+            <source src="audio/part2.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
         </div>
         <h4>Part II: Cognitive Load Theory</h4>
         <p>Why nothing sticks when you're tired, the three types of cognitive load, and how stress shrinks your working memory before you even open a book.</p>
       </div>
       <div class="video-card">
-        <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe>
+        <div class="audio-player-container" style="margin-top: 0.5rem; margin-bottom: 1.25rem;">
+          <audio controls style="width: 100%; accent-color: var(--accent);">
+            <source src="audio/part3.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
         </div>
         <h4>Part III: Spaced Repetition & Active Recall</h4>
         <p>The illusion of competence, why retrieval practice works better than re-reading, and how tools like Anki turn 10 minutes a day into lasting retention.</p>
