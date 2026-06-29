@@ -362,7 +362,7 @@ body.dark-theme .tag-amber { background: #2D2510; color: var(--amber); }
 /* VIDEOS */
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 1.5rem;
 }
@@ -500,9 +500,11 @@ footer {
   <div class="nav-links">
     <a href="#curve">Forgetting Curve</a>
     <a href="#articles">Articles</a>
+    <a href="#glossary">Glossary</a>
     <a href="#labs">Labs</a>
-    <a href="#quiz">Metacognition Quiz</a>
+    <a href="#quiz">Quiz</a>
     <a href="#videos">Videos</a>
+    <a href="#about">About</a>
     <a href="#references">References</a>
     <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()">🌙 Night Mode</button>
   </div>
@@ -615,14 +617,14 @@ footer {
       <div class="article-num">Article 02</div>
       <span class="article-tag tag-blue">Cognitive Load</span>
       <h3>Cognitive Load — Why Your Brain Has a Bandwidth Limit</h3>
-      <p>Acquiring and retaining knowledge requires structured processing within working memory, which acts as the central executive's temporary workspace. However, this biological hardware has rigid capacity constraints. Miller’s Law states that the average human cognitive system can hold only 7 ± 2 distinct informational items concurrently. When a student faces systemic bottlenecks, this processing capacity shrinks further. Educational psychologist John Sweller formulated Cognitive Load Theory in 1988, categorizing cognitive demands into three distinct types that compete for this finite systemic bandwidth: intrinsic, extraneous, and germane load.</p>
+      <p>To learn anything new, your brain has to process it through working memory — the mental space where you actively hold and manipulate information. But working memory is small. Really small. Miller's Law says most people can hold about 7 items in their head at once (give or take 2). That's it. And when you're under pressure — tired, stressed, distracted — that number shrinks even further. In 1988, educational psychologist John Sweller described this problem through what he called <strong>Cognitive Load Theory</strong>. The idea is that there are three types of mental demand competing for the same limited space: intrinsic, extraneous, and germane load.</p>
       
       <div style="background: var(--bg); border-left: 3px solid var(--blue); padding: 1rem 1.25rem; margin: 1.5rem 0; border-radius: 0 4px 4px 0;">
-        <p style="margin: 0; font-size: 13.5px; line-height: 1.6;"><strong>The Attentional Capture Effect (Mani et al., 2013)</strong><br>
-        Research demonstrates that external pressures—such as financial instability or severe personal stress—consume working memory capacity directly. This cognitive tax is roughly equivalent to losing a full night of sleep. Background concerns continuously pull cognitive resources away from learning tasks, shrinking baseline capacity.</p>
+        <p style="margin: 0; font-size: 13.5px; line-height: 1.6;"><strong>Stress eats your working memory (Mani et al., 2013)</strong><br>
+        Research has shown that external pressures — financial problems, personal stress, anxiety — directly consume working memory capacity. The cognitive cost is roughly equivalent to losing a full night of sleep. So if you're dealing with serious stress, you're not starting from zero when you sit down to study — you're starting in deficit.</p>
       </div>
       
-      <p><strong>Intrinsic load</strong> is dictated by the inherent complexity of the conceptual material itself, such as decoding advanced neuroanatomy frameworks. <strong>Extraneous load</strong> refers to the mental effort wasted on poorly designed instructional materials, environmental distractions, or fragmented study habits. <strong>Germane load</strong> represents the productive cognitive energy dedicated to processing information, synthesizing ideas, and constructing permanent mental schemas. If intrinsic and extraneous variables completely saturate working memory, germane processing becomes mathematically impossible; encoding ceases. Telling an anxious or exhausted student to simply "exert more effort" is a psychological fallacy that ignores these absolute biological constraints.</p>
+      <p><strong>Intrinsic load</strong> is the difficulty of the material itself — some subjects are just inherently harder, and you can't really change that. <strong>Extraneous load</strong> is everything that wastes your mental energy without contributing to learning: noisy environments, disorganized notes, constant phone notifications. <strong>Germane load</strong> is the productive effort — the actual work of understanding, connecting ideas, and building lasting mental models. Here's the critical point: if intrinsic and extraneous load use up all your working memory, there's simply no space left for germane processing. Learning stops. Telling an exhausted student to "just try harder" ignores the fact that their mental workspace is already full.</p>
     </div>
 
     <div class="article-card">
@@ -636,7 +638,51 @@ footer {
       <p>Traditional study habits like cramming demand sustained, uninterrupted concentration from a brain that is often already exhausted. Under those conditions, a Spaced Repetition System (SRS) offers a more realistic approach. Instead of one long block of study, SRS breaks learning into short review sessions distributed over days or weeks — each one timed to catch information just before it fades below the point of easy recall. Every successful review tells the brain this information matters, pushing the next forgetting point further into the future.</p>
       <p>The mechanism behind why this works is called the <strong>testing effect</strong>. Research by Roediger and Karpicke (2006) showed that actively trying to retrieve information — even when it is difficult, even when you almost fail — leads to significantly deeper long-term retention than simply re-reading the same material. Students who used retrieval practice retained roughly fifty percent more after one week compared to those who studied passively for the same amount of time. Not because they studied more hours, but because they used a different method.</p>
       <p>This also explains why highlighting and re-reading feel productive but often aren't. When the material is right in front of you, your brain recognizes it as familiar and produces a sense of understanding — what psychologists call the fluency trap, or the illusion of competence. That feeling is real, but it does not reflect whether you can actually recall the information when it is not in front of you. Retrieval practice removes that illusion by forcing genuine recall. Tools like Anki automate this entirely: you rate each card after reviewing it, and the algorithm adjusts the interval before it appears again. For students with limited time or energy, even ten to fifteen minutes a day of this kind of practice compounds into genuine, lasting retention over weeks.</p>
-      <p>From an educational and clinical perspective, the systemic integration of Spaced Repetition Systems extends far beyond immediate exam performance. In academic settings, shifting from massed practice to distributed retrieval protocols fundamentally restructures how students develop metacognitive monitoring. By forcing autonomous recall at algorithmic thresholds, individuals learn to accurately calibrate their own state of knowledge, dismantling the cognitive biases that fuel the fluency trap. Furthermore, in clinical and cognitive rehabilitation frameworks, these spacing architectures are increasingly utilized to support individuals experiencing working memory deficits or executive dysfunction. Because SRS relies on expanding retrieval intervals rather than demanding sustained central executive concentration, it minimizes the acute cognitive tax often exacerbated by academic anxiety or external systemic stress. Ultimately, transitioning to active, spaced retrieval practice facilitates robust schema consolidation within long-term memory networks, transforming a fragile short-term information intake into an enduring, biologically optimized foundation for lifelong learning.</p>
+      <p>The benefits of spaced repetition go beyond just passing an exam. When you practice retrieving information at the right intervals, you also get better at judging what you actually know versus what you only think you know — that's metacognition, and it's one of the most important skills for long-term learning. SRS also works well for students who are dealing with stress or fatigue, precisely because it doesn't demand long, intense study sessions. A short daily practice of 10-15 minutes, spread over weeks, builds much more durable knowledge than a marathon study session ever could. The forgetting curve is not something you beat by trying harder — it's something you work around by studying smarter.</p>
+    </div>
+  </div>
+
+  <!-- GLOSSARY -->
+  <div class="section" id="glossary">
+    <div class="section-label">Key Terms</div>
+    <h2>Glossary</h2>
+    <p>A quick reference for the main concepts used across this site. If a term comes up in an article or lab and you're not sure what it means, check here.</p>
+
+    <div class="article-card" style="padding: 1.5rem 2rem;">
+      <dl style="font-size: 14px; line-height: 1.8;">
+        <dt style="font-weight: 500; color: var(--text); margin-top: 1rem;">Forgetting Curve</dt>
+        <dd style="color: var(--muted); margin-left: 0; margin-bottom: 0.75rem;">The pattern discovered by Ebbinghaus showing that memory decays exponentially — most of the loss happens within the first 24 hours after learning something new.</dd>
+
+        <dt style="font-weight: 500; color: var(--text); margin-top: 1rem;">Savings Method</dt>
+        <dd style="color: var(--muted); margin-left: 0; margin-bottom: 0.75rem;">Even when information feels completely forgotten, relearning it takes less time than learning it from scratch. The original neural pathway is weakened but not erased.</dd>
+
+        <dt style="font-weight: 500; color: var(--text); margin-top: 1rem;">Working Memory</dt>
+        <dd style="color: var(--muted); margin-left: 0; margin-bottom: 0.75rem;">The mental workspace where your brain holds and processes new information in real time. It has a hard limit of about 7 items (Miller's Law).</dd>
+
+        <dt style="font-weight: 500; color: var(--text); margin-top: 1rem;">Cognitive Load (Intrinsic / Extraneous / Germane)</dt>
+        <dd style="color: var(--muted); margin-left: 0; margin-bottom: 0.75rem;"><strong style="color: var(--text);">Intrinsic:</strong> the inherent difficulty of the material. <strong style="color: var(--text);">Extraneous:</strong> wasted mental effort from distractions or bad materials. <strong style="color: var(--text);">Germane:</strong> the productive effort of actually understanding and connecting ideas.</dd>
+
+        <dt style="font-weight: 500; color: var(--text); margin-top: 1rem;">Spaced Repetition (SRS)</dt>
+        <dd style="color: var(--muted); margin-left: 0; margin-bottom: 0.75rem;">A study method that schedules reviews at increasing intervals — each session timed to catch information just before it fades. Tools like Anki automate this process.</dd>
+
+        <dt style="font-weight: 500; color: var(--text); margin-top: 1rem;">Active Recall</dt>
+        <dd style="color: var(--muted); margin-left: 0; margin-bottom: 0.75rem;">Deliberately trying to retrieve information from memory without looking at the source. Flashcards, practice tests, and writing from memory are all forms of active recall.</dd>
+
+        <dt style="font-weight: 500; color: var(--text); margin-top: 1rem;">Testing Effect</dt>
+        <dd style="color: var(--muted); margin-left: 0; margin-bottom: 0.75rem;">The finding that actively retrieving information strengthens memory more than passively reviewing it — even when the retrieval attempt is difficult or unsuccessful (Roediger & Karpicke, 2006).</dd>
+
+        <dt style="font-weight: 500; color: var(--text); margin-top: 1rem;">Illusion of Competence (Fluency Trap)</dt>
+        <dd style="color: var(--muted); margin-left: 0; margin-bottom: 0.75rem;">When re-reading or highlighting makes material feel familiar, creating a false sense of mastery. You recognize the information but cannot actually recall it without the source in front of you.</dd>
+
+        <dt style="font-weight: 500; color: var(--text); margin-top: 1rem;">Chunking</dt>
+        <dd style="color: var(--muted); margin-left: 0; margin-bottom: 0.75rem;">Grouping individual pieces of information into meaningful units to stay within working memory limits. For example, remembering "FBI-CIA-USB" (3 chunks) instead of "F-B-I-C-I-A-U-S-B" (9 items).</dd>
+
+        <dt style="font-weight: 500; color: var(--text); margin-top: 1rem;">Schema</dt>
+        <dd style="color: var(--muted); margin-left: 0; margin-bottom: 0.75rem;">A mental framework that organizes related knowledge. The more connected your schema, the easier it is to learn and retain new information within that domain.</dd>
+
+        <dt style="font-weight: 500; color: var(--text); margin-top: 1rem;">Metacognition</dt>
+        <dd style="color: var(--muted); margin-left: 0; margin-bottom: 0.75rem;">Thinking about your own thinking — the ability to accurately judge what you know, what you don't know, and which study strategies are actually working for you.</dd>
+      </dl>
     </div>
   </div>
 
@@ -694,38 +740,38 @@ footer {
 
   <!-- CUESTIONARIO METACOGNITIVO -->
   <div class="section" id="quiz">
-    <div class="section-label">Metacognition Assessment</div>
-    <h2>Test Your Habits: Study Architecture Quiz</h2>
-    <p>Evaluate your current academic behaviors against cognitive psychology baselines to determine your risk of falling into processing bottlenecks or the fluency trap.</p>
+    <div class="section-label">Metacognition Check</div>
+    <h2>How Do You Actually Study?</h2>
+    <p>Five quick questions about your real study habits. Be honest — the point is not to score high, but to see where your current approach might be working against you.</p>
     
     <div class="article-card">
       <div id="quiz-container">
         <div style="margin-bottom: 1.5rem;">
-          <p><strong>1. How do you typically prepare for an extensive academic evaluation?</strong></p>
-          <label class="quiz-option"><input type="radio" name="q1" value="0"> Massed practice (concentrating the study volume within 48 hours of the exam).</label>
-          <label class="quiz-option"><input type="radio" name="q1" value="20"> Spaced repetition (brief distributed recall sessions across days or weeks).</label>
+          <p><strong>1. How do you usually get ready for a big exam?</strong></p>
+          <label class="quiz-option"><input type="radio" name="q1" value="0"> I cram — most of my studying happens the night before or the same day.</label>
+          <label class="quiz-option"><input type="radio" name="q1" value="20"> I spread it out — short review sessions over several days or weeks.</label>
         </div>
         <div style="margin-bottom: 1.5rem;">
-          <p><strong>2. What is your primary behavior when processing dense text chapters?</strong></p>
-          <label class="quiz-option"><input type="radio" name="q2" value="0"> Passive review (linear re-reading and highlighting structures visually).</label>
-          <label class="quiz-option"><input type="radio" name="q2" value="20"> Active recall (closing material to self-test, flashcard design, or prompt evocation).</label>
+          <p><strong>2. When you study from a textbook or notes, what do you actually do?</strong></p>
+          <label class="quiz-option"><input type="radio" name="q2" value="0"> I re-read and highlight — I go through the material until it feels familiar.</label>
+          <label class="quiz-option"><input type="radio" name="q2" value="20"> I close my notes and try to recall from memory — flashcards, practice tests, or just writing down what I remember.</label>
         </div>
         <div style="margin-bottom: 1.5rem;">
-          <p><strong>3. Which description best defines your standard physical environment?</strong></p>
-          <label class="quiz-option"><input type="radio" name="q3" value="0"> High extraneous load (active phone notifications, visual disruptions, or background audio).</label>
-          <label class="quiz-option"><input type="radio" name="q3" value="20"> Controlled baseline (blocked digital alerts, silent workspace, minimized sensory noise).</label>
+          <p><strong>3. What does your study environment usually look like?</strong></p>
+          <label class="quiz-option"><input type="radio" name="q3" value="0"> Honestly? Phone nearby, notifications on, maybe music or people talking in the background.</label>
+          <label class="quiz-option"><input type="radio" name="q3" value="20"> I try to keep it quiet — phone on silent, no distractions, focused workspace.</label>
         </div>
         <div style="margin-bottom: 1.5rem;">
-          <p><strong>4. How do you execute memorization of complex, unstructured data points?</strong></p>
-          <label class="quiz-option"><input type="radio" name="q4" value="0"> Sequential intake (trying to anchor strings of facts or words exactly as they appear).</label>
-          <label class="quiz-option"><input type="radio" name="q4" value="20"> The chunking protocol (clustering fragmented fields into semantic units or acronyms).</label>
+          <p><strong>4. When you need to memorize a list of facts or terms, how do you approach it?</strong></p>
+          <label class="quiz-option"><input type="radio" name="q4" value="0"> I try to memorize them one by one, in the order they appear.</label>
+          <label class="quiz-option"><input type="radio" name="q4" value="20"> I group them — I look for patterns, make acronyms, or organize them into categories.</label>
         </div>
         <div style="margin-bottom: 1.5rem;">
-          <p><strong>5. When dealing with severe systemic fatigue or acute stress frameworks, you:</strong></p>
-          <label class="quiz-option"><input type="radio" name="q5" value="0"> Force long, high-effort study sessions ignoring working memory capacity degradation.</label>
-          <label class="quiz-option"><input type="radio" name="q5" value="20"> Adapt to brief, low-friction processing modules (like a 10-minute automated SRS loop).</label>
+          <p><strong>5. When you're exhausted or really stressed out, what do you do?</strong></p>
+          <label class="quiz-option"><input type="radio" name="q5" value="0"> I push through anyway — long study sessions even if nothing is sticking.</label>
+          <label class="quiz-option"><input type="radio" name="q5" value="20"> I switch to something lighter — maybe 10-15 minutes of flashcards or a quick review instead.</label>
         </div>
-        <button class="tab" style="width: 100%; padding: 10px; margin-top: 1rem;" onclick="processQuiz()">Analyze My Efficiency</button>
+        <button class="tab" style="width: 100%; padding: 10px; margin-top: 1rem;" onclick="processQuiz()">See My Results</button>
       </div>
       <div id="quiz-results" style="display: none;"></div>
     </div>
@@ -733,25 +779,44 @@ footer {
 
   <!-- VIDEOS -->
   <div class="section" id="videos">
-    <div class="section-label">Video Tutorials</div>
+    <div class="section-label">Video Walkthroughs</div>
     <h2>Spoken Walkthroughs</h2>
-    <p>A semi-spontaneous, comprehensive explanation of the psychological mechanisms governing memory optimization and architectural processing limits.</p>
+    <p>Screencast walkthroughs of the site — I navigate each section and explain the key ideas in my own words. Three parts, about three minutes each.</p>
     
     <div class="video-grid">
       <div class="video-card">
         <div class="video-container">
           <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
         </div>
-        <h4>Part I: The Forgetting Curve & Spaced Repetition</h4>
-        <p>An in-depth analysis of Ebbinghaus's savings method, exponential retrieval decay, and the structural application of automated SRS algorithms.</p>
+        <h4>Part I: The Forgetting Curve</h4>
+        <p>Why memory fades so fast, what Ebbinghaus discovered, and why your previous study sessions are never entirely wasted.</p>
       </div>
       <div class="video-card">
         <div class="video-container">
           <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
         </div>
-        <h4>Part II: Cognitive Load Theory & Active Recall</h4>
-        <p>Evaluating working memory boundaries, the metabolic taxes of external stress frameworks, and the systemic failure of passive review strategies.</p>
+        <h4>Part II: Cognitive Load Theory</h4>
+        <p>Why nothing sticks when you're tired, the three types of cognitive load, and how stress shrinks your working memory before you even open a book.</p>
       </div>
+      <div class="video-card">
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe>
+        </div>
+        <h4>Part III: Spaced Repetition & Active Recall</h4>
+        <p>The illusion of competence, why retrieval practice works better than re-reading, and how tools like Anki turn 10 minutes a day into lasting retention.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="section" id="about">
+    <div class="section-label">About</div>
+    <h2>About This Project</h2>
+    <div class="article-card">
+      <p>My name is <strong>Angel Ramírez</strong>. I'm a psychology student at <strong>Universidad de Talca</strong>, Chile, and this website is my Capstone Project for the English C1.III course (2026).</p>
+      <p>The idea came from a simple observation: most students already know they should "study better," but almost no one explains <em>why</em> their current methods fail — or what the science actually says about how memory works under pressure. I wanted to build something that bridges that gap — not a textbook, but a practical, interactive resource that makes cognitive psychology accessible to any student who is tired, stressed, or running out of time.</p>
+      <p>Everything on this site — the articles, the labs, the quiz, the video scripts — was written and built by me. The design, code, and content reflect my own understanding of the research, explained in my own words.</p>
+      <p style="font-size: 13px; color: var(--muted);"><strong>Target audience:</strong> University students who want to understand why their study habits aren't working and what evidence-based alternatives look like.</p>
     </div>
   </div>
 
@@ -763,6 +828,7 @@ footer {
       <li>Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T., & Rohrer, D. (2006). Distributed practice in verbal recall tasks: A review and quantitative synthesis. <em>Psychological Bulletin, 132</em>(3), 354–380.</li>
       <li>Ebbinghaus, H. (1885). <em>Memory: A contribution to experimental psychology</em> (H. A. Ruger & C. E. Bussenius, Trans.). Teachers College, Columbia University.</li>
       <li>Mani, A., Mullainathan, S., Shafir, E., & Zhao, J. (2013). Poverty impedes cognitive function. <em>Science, 341</em>(6149), 976–980.</li>
+      <li>Roediger, H. L., & Karpicke, J. D. (2006). Test-enhanced learning: Taking memory tests improves long-term retention. <em>Psychological Science, 17</em>(3), 249–255.</li>
       <li>Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. <em>Cognitive Science, 12</em>(2), 257–285.</li>
     </ul>
   </div>
@@ -879,7 +945,7 @@ function processQuiz() {
   if (q1) {
     score += parseInt(q1.value);
     if (q1.value === "0") {
-      customTipsHTML += "<li><strong>On Preparation:</strong> You are relying heavily on massed practice. Cramming forces a severe drop in data preservation post-exam. Shift your architecture to distributed spacing modules to activate the Ebbinghaus savings method properly.</li>";
+      customTipsHTML += "<li><strong>Exam prep:</strong> Cramming might feel productive, but your brain drops most of that information within days. Try reviewing in shorter sessions spread over a week instead — even 15 minutes a day makes a real difference.</li>";
     }
   } else {
     validation = false;
@@ -889,7 +955,7 @@ function processQuiz() {
   if (q2) {
     score += parseInt(q2.value);
     if (q2.value === "0") {
-      customTipsHTML += "<li><strong>On Content Processing:</strong> Linear re-reading and text highlighting trigger the fluency trap. Recognition feels like mastery, but fails to construct autonomous retrieval networks. Force active retrieval (make flashcards, do practice questions before you are ready).</li>";
+      customTipsHTML += "<li><strong>Study method:</strong> Re-reading and highlighting feel productive, but they mostly create a false sense of familiarity. Try closing your notes and testing yourself instead — the struggle of trying to remember is what actually builds the memory.</li>";
     }
   } else {
     validation = false;
@@ -899,7 +965,7 @@ function processQuiz() {
   if (q3) {
     score += parseInt(q3.value);
     if (q3.value === "0") {
-      customTipsHTML += "<li><strong>On Focus Environment:</strong> Studying with active device alerts maximizes extraneous cognitive load. You are spending limited working memory bandwidth inhibiting irrelevant sensory data instead of processing conceptual frameworks. Lock down your digital workspace.</li>";
+      customTipsHTML += "<li><strong>Your environment:</strong> Studying with your phone buzzing and noise around you means your brain is spending energy blocking out distractions instead of learning. Put your phone on airplane mode and find a quiet spot — it sounds simple, but it genuinely helps.</li>";
     }
   } else {
     validation = false;
@@ -909,7 +975,7 @@ function processQuiz() {
   if (q4) {
     score += parseInt(q4.value);
     if (q4.value === "0") {
-      customTipsHTML += "<li><strong>On Data Structure:</strong> Trying to absorb sequences of unlinked points violates Miller's Law constraints. You cannot expand your raw short-term data space, but you can compress information. Map data into systematic acronyms or chunking schemas.</li>";
+      customTipsHTML += "<li><strong>Memorization:</strong> Trying to memorize a long list of unrelated items one by one is fighting against your brain's natural limits (~7 items at a time). Instead, try grouping things into categories, making acronyms, or finding patterns — that's chunking, and it works.</li>";
     }
   } else {
     validation = false;
@@ -919,14 +985,14 @@ function processQuiz() {
   if (q5) {
     score += parseInt(q5.value);
     if (q5.value === "0") {
-      customTipsHTML += "<li><strong>On Stress Control:</strong> Forcing marathon study sessions during states of exhaustion or personal anxiety is a psychological fallacy. When working memory capacity is occupied by systemic stressors, change your input into 10-minute micro-sessions via algorithmic SRS tools.</li>";
+      customTipsHTML += "<li><strong>Under stress:</strong> Forcing yourself through long study sessions when you're exhausted doesn't work — your working memory is already reduced by the stress itself. Switch to something lighter: 10 minutes of Anki flashcards can be more effective than two hours of re-reading when you're running on empty.</li>";
     }
   } else {
     validation = false;
   }
   
   if (!validation) {
-    alert("Please evaluate all architectural options before submission.");
+    alert("Please answer all five questions before submitting.");
     return;
   }
   
@@ -937,18 +1003,18 @@ function processQuiz() {
   let diagnosis = "";
   
   if (score >= 80) {
-    label = "Optimized Strategy";
-    diagnosis = "Your processing baseline minimizes extraneous load and relies heavily on active retrieval networks and structured spacing intervals.";
+    label = "You're on the right track";
+    diagnosis = "Your study habits already align pretty well with how memory actually works — you're using active recall, spacing out your sessions, and managing distractions.";
   } else if (score >= 50) {
-    label = "Vulnerable Architecture";
-    diagnosis = "You utilize selective active structures but frequently lapse into massed practice, risking working memory bottlenecks or falling into the fluency trap.";
+    label = "Some good habits, some risky ones";
+    diagnosis = "You're doing some things right, but you still fall back on cramming or passive reviewing sometimes. The tips below show where you could improve the most.";
   } else {
-    label = "High Cognitive Tax";
-    diagnosis = "Your current workflow runs directly counter to human biological memory processing. You depend heavily on visual recognition and high-fatigue massed habits.";
+    label = "Your habits are working against you";
+    diagnosis = "Most of your current study methods go against how your brain actually stores information. The good news? Small changes — like testing yourself instead of re-reading — can make a big difference.";
   }
   
   if (customTipsHTML === "") {
-    customTipsHTML = "<li><strong>System Clean:</strong> No critical architectural flaws detected. Your study habits align with human biological encoding constraints.</li>";
+    customTipsHTML = "<li><strong>Nice work:</strong> No major issues found. Your study habits are already well-aligned with the science behind how memory works.</li>";
   }
   
   container.style.display = 'none';
@@ -957,17 +1023,17 @@ function processQuiz() {
   results.innerHTML = `
     <div class="stats-row">
       <div class="stat" style="grid-column: span 3; text-align: center;">
-        <div class="stat-label">Cognitive Efficiency Index</div>
+        <div class="stat-label">Your Score</div>
         <div class="stat-val" style="color: var(--accent); font-size: 2rem;">${score}%</div>
       </div>
     </div>
     <div class="insight" style="margin-top: 1rem;">
       <div class="insight-label">${label}</div>
       <div class="insight-text"><strong>Analysis:</strong> ${diagnosis}</div>
-      <div style="margin-top: 12px; font-weight: 500; font-size: 12px; color: var(--text); text-transform: uppercase; letter-spacing: 0.04em;">Targeted Action Items:</div>
+      <div style="margin-top: 12px; font-weight: 500; font-size: 12px; color: var(--text); text-transform: uppercase; letter-spacing: 0.04em;">What You Could Change:</div>
       <ul class="personalized-tips">${customTipsHTML}</ul>
     </div>
-    <button class="tab" style="width: 100%; margin-top: 1.5rem;" onclick="resetQuiz()">Retake Assessment</button>
+    <button class="tab" style="width: 100%; margin-top: 1.5rem;" onclick="resetQuiz()">Try Again</button>
   `;
   
   results.scrollIntoView({ 
